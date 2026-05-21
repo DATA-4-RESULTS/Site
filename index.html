@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D4R | Tecnologia, IA e Estratégia de Dados para Negócios</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="D4R - Consultoria estratégica em tecnologia e Inteligência Artificial. Transformamos dados em resultados através de automação inteligente e análise avançada para o mercado corporativo.">
+    <meta name="keywords" content="D4R, Inteligência Artificial, IA, Consultoria de Dados, Automação de Processos, Transformação Digital, Belo Horizonte, Business Intelligence">
+    <meta name="author" content="D4R">
+    <link rel="canonical" href="https://d4r.com.br/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://d4r.com.br/">
+    <meta property="og:title" content="D4R | Tecnologia, IA e Estratégia de Dados para Negócios">
+    <meta property="og:description" content="Consultoria estratégica em tecnologia e IA. Transformamos dados em resultados através de soluções inteligentes e escaláveis.">
+    <meta property="og:image" content="https://d4r.com.br/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://d4r.com.br/">
+    <meta property="twitter:title" content="D4R | Tecnologia, IA e Estratégia de Dados para Negócios">
+    <meta property="twitter:description" content="Consultoria estratégica em tecnologia e IA. Transformamos dados em resultados através de soluções inteligentes e escaláveis.">
+    <meta property="twitter:image" content="https://d4r.com.br/logo.png">
+
+    <!-- Google Fonts: Inter para clareza e modernidade -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-navy-dark: #0A0F1E;
+            --color-navy-main: #10183F;
+            --color-accent-start: #00E4A1; 
+            --color-accent-end: #0056FF;
+            --gradient-accent: linear-gradient(135deg, var(--color-accent-start) 0%, var(--color-accent-end) 100%);
+            --color-bg: #FFFFFF;
+            --color-bg-alt: #F8FAFC;
+            --color-text-primary: #0F172A;
+            --color-text-secondary: #475569;
+            --color-text-muted: #94A3B8;
+            --border-color: #E2E8F0;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            transition: var(--transition-smooth);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 12rem 0 8rem 0;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 228, 161, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 86, 255, 0.05) 0%, transparent 20%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-navy-main);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            color: var(--color-navy-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 3vw, 1.25rem);
+            color: var(--color-text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--color-navy-main);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-navy-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(16, 24, 63, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--color-text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--color-navy-main);
+            background: var(--color-bg-alt);
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 8rem 0;
+        }
+
+        .section-tag {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--color-accent-end);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--color-navy-dark);
+            letter-spacing: -0.02em;
+        }
+
+        /* --- Grid Cards --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            padding: 3rem;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            background: white;
+            border-color: transparent;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            color: var(--color-accent-end);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+
+        /* --- About --- */
+        .about-wrap {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .about-text p {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .about-stats {
+            flex: 1;
+            min-width: 320px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Contact --- */
+        .contact {
+            background: var(--color-navy-dark);
+            color: white;
+            border-radius: 2rem;
+            margin: 0 1.5rem 4rem 1.5rem;
+            padding: 6rem 3rem;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-item h5 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a, .contact-item p {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-item a:hover {
+            color: var(--color-accent-start);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-legal a:hover {
+            color: var(--color-navy-main);
+        }
+
+        .copy {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- Modal --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 30, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 4rem;
+            border-radius: 1.5rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text-muted);
+        }
+
+        .modal-body h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--color-navy-dark);
+        }
+
+        .modal-body h3 {
+            margin: 2rem 0 1rem 0;
+            font-size: 1.25rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* --- Mobile Friendly Adjustments --- */
+        @media (max-width: 768px) {
+            header { padding: 1rem 0; }
+            .hero { padding-top: 10rem; }
+            section { padding: 6rem 0; }
+            .contact { padding: 4rem 1.5rem; }
+            .contact-item a, .contact-item p { font-size: 1.25rem; }
+            .modal-content { padding: 2.5rem; margin: 2rem auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <a href="#"><img src="logo.png" alt="D4R Logo" class="logo-img"></a>
+            <div class="hero-actions" style="margin: 0;">
+                <a href="#contato" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge reveal">Em Expansão Digital</div>
+                    <h1 class="reveal delay-1">Transformamos dados em <span>resultados</span>.</h1>
+                    <p class="reveal delay-2">
+                        Consultoria estratégica em tecnologia e IA. Desenvolvemos soluções de automação e análise que priorizam a clareza técnica e o retorno sobre o investimento.
+                    </p>
+                    <div class="hero-actions reveal delay-3">
+                        <a href="#contato" class="btn btn-primary">Iniciar Conversa</a>
+                        <a href="#sobre" class="btn btn-outline">Nossa Abordagem</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre / Metodologia -->
+        <section id="sobre">
+            <div class="container">
+                <span class="section-tag">Metodologia</span>
+                <h2 class="section-title">Mais que código, geramos viabilidade.</h2>
+                <div class="about-wrap">
+                    <div class="about-text">
+                        <p>
+                            Na D4R, não apenas implementamos tecnologia; nós a traduzimos em valor corporativo. Nossa atuação foca na vanguarda da IA generativa e automação de processos, sempre com o pé no chão da realidade econômica de cada negócio.
+                        </p>
+                        <a href="mailto:contato@d4r.com.br" class="btn btn-outline">Fale com um especialista</a>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h4>IA</h4>
+                            <p>Automação Nativa</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>DATA</h4>
+                            <p>Decisões Guiadas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>ROI</h4>
+                            <p>Foco em Resultado</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>TECH</h4>
+                            <p>Escalabilidade</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soluções / Em Breve -->
+        <section style="background-color: var(--color-bg-alt);">
+            <div class="container">
+                <span class="section-tag">Roadmap</span>
+                <h2 class="section-title">Soluções em desenvolvimento</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Ecossistema IA</h3>
+                        <p>Ambientes interativos e personalizados para automação de atendimento e fluxos de trabalho inteligentes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        </div>
+                        <h3>Arquitetura de Dados</h3>
+                        <p>Estruturação de bases de conhecimento para suporte a decisões estratégicas baseadas em dados reais.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3>Website Oficial</h3>
+                        <p>Lançamento em breve da nossa plataforma completa com casos de uso, artigos técnicos e demonstrações ao vivo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato">
+            <div class="container">
+                <div class="contact">
+                    <span class="section-tag" style="color: var(--color-accent-start);">Conexão</span>
+                    <h2 class="section-title">Vamos construir o próximo nível da sua operação?</h2>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <h5>E-mail corporativo</h5>
+                            <a href="mailto:contato@d4r.com.br">contato@d4r.com.br</a>
+                        </div>
+                        <div class="contact-item">
+                            <h5>Localização</h5>
+                            <p>Belo Horizonte, MG</p>
+                        </div>
+                        <div class="contact-item">
+                            <h5>CNPJ</h5>
+                            <p>64.654.166/0001-04</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="copy">&copy; 2026 D4R. Todos os direitos reservados.</div>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="openModal('privacyModal')">Privacidade</a>
+                <a href="javascript:void(0)" onclick="openModal('termsModal')">Termos</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Privacy & Terms) -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('privacyModal')">&times;</span>
+            <div class="modal-body">
+                <h2>Política de Privacidade</h2>
+                <p>A D4R valoriza a transparência. Esta política descreve o tratamento de dados em nossos ambientes de demonstração.</p>
+                <h3>1. Finalidade</h3>
+                <p>Este ambiente ilustra capacidades técnicas e fluxos de automação. É uma presença institucional temporária.</p>
+                <h3>2. Dados Pessoais</h3>
+                <p>Orientamos o usuário a <strong>NÃO inserir dados reais ou sensíveis</strong>. Logs de interação são temporários e usados apenas para auditoria de segurança e melhoria de precisão.</p>
+                <h3>3. Infraestrutura</h3>
+                <p>Utilizamos provedores corporativos de IA que garantem a não utilização de dados para treinamento de modelos globais, alinhados à LGPD.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('termsModal')">&times;</span>
+            <div class="modal-body">
+                <h2>Termos de Uso</h2>
+                <p>Ao interagir com este ambiente, você concorda com as condições abaixo.</p>
+                <h3>1. Natureza Demo</h3>
+                <p>Interfaces de IA são ferramentas de demonstração. Cenários representados podem ser fictícios.</p>
+                <h3>2. Sem Vínculo Jurídico</h3>
+                <p>O uso não constitui aconselhamento profissional ou relação advogado-cliente.</p>
+                <h3>3. Responsabilidade</h3>
+                <p>Proibido prompt injection, engenharia reversa ou uso malintencionado. A D4R detém a propriedade intelectual da arquitetura e fluxos.</p>
+                <p style="margin-top: 2rem; font-weight: 600;">Atualizado: 20 de maio de 2026.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
